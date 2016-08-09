@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24.0.0"
+
+    defaultConfig {
+        applicationId "com.example.genshib.mymapproject"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+def MAPFORGE_VERSION = "0.6.1"
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    wearApp project(':wear')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.google.android.gms:play-services:9.4.0'
+    compile 'com.android.support:design:23.4.0'
+
+    compile 'org.mapsforge:mapsforge-core:' + MAPFORGE_VERSION
+    compile 'org.mapsforge:mapsforge-map:' + MAPFORGE_VERSION
+    compile 'org.mapsforge:mapsforge-map-reader:' + MAPFORGE_VERSION
+    compile 'net.sf.kxml:kxml2:2.3.0'
+    compile 'org.mapsforge:mapsforge-map-android:' + MAPFORGE_VERSION
+    compile 'com.caverock:androidsvg:1.2.2-beta-1'
+}
